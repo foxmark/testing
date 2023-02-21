@@ -12,6 +12,11 @@ class CarServiceTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function testBootstrapUsed()
+    {
+        $this->assertSame('localhost', TEST_HOSTANME);
+    }
+
     public function testCarIsInstanceOfCarService()
     {
         $car = new CarService();
@@ -22,6 +27,6 @@ class CarServiceTest extends TestCase
     {
         $car = new CarService();
         $car_config = $car::CONF_1;
-        $this->assertEquals(23, $car_config);
+        $this->assertEquals(23, $car_config, 'Invalid CONF_1 value');
     }
 }
